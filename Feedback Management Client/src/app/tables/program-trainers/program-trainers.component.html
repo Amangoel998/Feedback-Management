@@ -1,0 +1,49 @@
+<mat-card><mat-expansion-panel >
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Trainer Programs Table
+    </mat-panel-title>
+    <mat-panel-description>
+      List of Trainers and their respective Programs
+      <!-- <mat-icon>calendar_today</mat-icon> -->
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    <mat-table class="mat-elevation-z" [dataSource]="programtrainer_list">
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index">
+        {{ i + 1 }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="trainer">
+      <mat-header-cell *matHeaderCellDef> Trainer ID </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.trainerId }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="program" style="width: max-content;">
+      <mat-header-cell *matHeaderCellDef> Program ID</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.programId }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="batch">
+      <mat-header-cell *matHeaderCellDef> Batch</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.batch }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-action-row>
+    <mat-form-field style="width:200px">
+      <mat-label>Delete Trainer from Program</mat-label>
+      <mat-select [formControl]="deleteprogramtrainer" >
+          <mat-option *ngFor="let gen of programtrainer_list" [value]="gen">{{gen.trainerId+' - '+gen.programId+' - '+gen.batch}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="deleteprogramtrainer.errors && deleteprogramtrainer.errors.required">Trainer Program is required.</mat-error>
+  </mat-form-field>
+    <button mat-button color="warn" (click)="removeProgramTrainer()">Delete</button>
+    <button mat-button color="primary" (click)="addDialog()">Add</button>
+  </mat-action-row>
+</mat-expansion-panel>
+</mat-card>

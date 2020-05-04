@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="id" />
+          <mat-error *ngIf="id.errors">ID is required</mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" />
+          <mat-error *ngIf="password.errors"
+            >Password length must be atleast 6</mat-error
+          >
+        </mat-form-field>
+      </p>
+      <div>
+        <span style="margin-left: 135px;">
+          <button type="submit" color="primary" mat-button>Login</button>
+        </span>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

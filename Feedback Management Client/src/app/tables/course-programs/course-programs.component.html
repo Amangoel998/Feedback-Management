@@ -1,0 +1,53 @@
+<mat-card><mat-expansion-panel >
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Course Programs Table
+    </mat-panel-title>
+    <mat-panel-description>
+      List of Programs in Courses and their Start and End Date
+      <!-- <mat-icon>calendar_today</mat-icon> -->
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+    <mat-table class="mat-elevation-z" [dataSource]="programcourse_list">
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index">
+        {{ i + 1 }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="course">
+      <mat-header-cell *matHeaderCellDef> Course </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.programCourseId.courseId }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="program" style="width: max-content;">
+      <mat-header-cell *matHeaderCellDef> Program </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.programCourseId.programId }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="startdate">
+      <mat-header-cell *matHeaderCellDef> Start Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.startdate }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="enddate">
+      <mat-header-cell *matHeaderCellDef> End Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.enddate }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <mat-action-row>
+    <mat-form-field style="width:200px">
+      <mat-label>Delete Program from Course</mat-label>
+      <mat-select [formControl]="deletecourseprogram" >
+          <mat-option *ngFor="let gen of programcourse_list" [value]="gen.programCourseId">{{gen.programCourseId.courseId+' - '+gen.programCourseId.programId}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="deletecourseprogram.errors && deletecourseprogram.errors.required">Program Course is required.</mat-error>
+  </mat-form-field>
+    <button mat-button color="warn" (click)="removeCourseProgram()">Delete</button>
+    <button mat-button color="primary" (click)="addDialog()">Add</button>
+  </mat-action-row>
+</mat-expansion-panel>
+</mat-card>

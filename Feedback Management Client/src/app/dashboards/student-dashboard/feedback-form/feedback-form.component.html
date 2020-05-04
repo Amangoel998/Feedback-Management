@@ -1,0 +1,109 @@
+<h2>Give Feedback</h2>
+<form [formGroup]="form" (ngSubmit)="sendFeedback()">
+  <table>
+    <tr>
+      <td>
+        <div>
+            <mat-card>
+            <h3>{{'Program - '+data.programId+' - '+data.programName}}</h3>
+        </mat-card>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-card>
+            <h3>{{'Trainer - '+data.trainerId+' - '+data.trainerName}}</h3>
+        </mat-card>
+        </div>
+      </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label><b>{{'Q1.'+questions.q1+":"}}</b></label><br>
+                <mat-radio-group formControlName="q1">
+                    <mat-radio-button *ngFor="let g of ratings" [value]="g">
+                        {{g}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label><b>{{'Q2.'+questions.q2+":"}}</b></label><br>
+                <mat-radio-group formControlName="q2">
+                    <mat-radio-button *ngFor="let g of ratings" [value]="g">
+                        {{g}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label><b>{{'Q3.'+questions.q3+":"}}</b></label><br>
+                <mat-radio-group formControlName="q3">
+                    <mat-radio-button *ngFor="let g of ratings" [value]="g">
+                        {{g}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label><b>{{'Q4.'+questions.q4+":"}}</b></label><br>
+                <mat-radio-group formControlName="q4">
+                    <mat-radio-button *ngFor="let g of ratings" [value]="g">
+                        {{g}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <label><b>{{'Q5.'+questions.q5+":"}}</b></label><br>
+                <mat-radio-group formControlName="q5">
+                    <mat-radio-button *ngFor="let g of ratings" [value]="g">
+                        {{g}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>Comments</mat-label>
+                <textarea  formControlName="comments" matInput placeholder="Comments about program and trainer"></textarea>
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>Suggestions</mat-label>
+                <textarea  formControlName="suggestions" matInput placeholder="What could be done to improve your Experience"></textarea>
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button  color="primary">Submit Feedback</button>
+      </td>
+    </tr>
+  </table>
+</form>

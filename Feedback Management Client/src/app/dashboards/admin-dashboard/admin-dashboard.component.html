@@ -1,0 +1,35 @@
+<mat-toolbar color="accent" class="dashboard-toolbar">
+  <mat-toolbar-row>
+      <h1>{{'Welcome '+user.user}}</h1>
+      <span class="toolbar-spacer"></span>
+      <button color="warn" mat-raised-button (click)="logout()">
+          Logout
+        </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Batches Students Trainers">
+    <ng-template matTabContent>
+      <mat-accordion> <app-batches></app-batches>
+        <app-courses></app-courses>
+        <app-programs></app-programs>
+        <app-trainers></app-trainers>
+        <app-students></app-students></mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Courses Programs Trainers">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <app-course-programs></app-course-programs>
+        <app-program-trainers></app-program-trainers> </mat-accordion>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Reports and Defaulters">
+    <ng-template matTabContent>
+      <mat-accordion>
+        <app-admin-defaulters></app-admin-defaulters>
+        <app-admin-reports></app-admin-reports> 
+      </mat-accordion>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

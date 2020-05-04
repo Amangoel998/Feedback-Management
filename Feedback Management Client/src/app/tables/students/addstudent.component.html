@@ -1,0 +1,69 @@
+<h2>Add a New Student</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Student Name</mat-label>
+            <input matInput type="text" formControlName="studentName" required/>
+            <mat-error *ngIf="studentName.errors && studentName.errors.required">Student Name is required.</mat-error>    
+            </mat-form-field>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Student Email</mat-label>
+            <input matInput type="text" formControlName="studentEmail" required/>
+            <mat-error *ngIf="studentEmail.errors && studentEmail.errors.required">Student Email is required.</mat-error>
+            <mat-error *ngIf="studentEmail.errors && studentEmail.errors.email">Must be a valid email.</mat-error>
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Student ID</mat-label>
+            <input matInput type="text" formControlName="studentId" required />
+            <mat-error *ngIf="studentId.errors && studentId.errors.required">Student ID is required.</mat-error>
+            <mat-error *ngIf="studentId.errors && studentId.errors.pattern">Student ID must be STDXXX</mat-error>
+        </mat-form-field>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Student Password</mat-label>
+            <input matInput type="password" formControlName="studentPass" required/>
+            <mat-error *ngIf="studentPass.errors && studentPass.errors.required">Student Password is required.</mat-error>    
+            <mat-error *ngIf="studentPass.errors && studentPass.errors.minlength">Password must atleast have 6 length</mat-error>    
+            </mat-form-field>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Batch</mat-label>
+            <input matInput type="text" formControlName="batch" required/>
+            <mat-error *ngIf="batch.errors && batch.errors.required">Batch is required.</mat-error>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button color="accent">Add Student</button>
+      </td>
+    </tr>
+  </table>
+</form>

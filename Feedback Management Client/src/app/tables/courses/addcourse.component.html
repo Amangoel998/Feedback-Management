@@ -1,0 +1,38 @@
+<h2>Add a New Course</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Course Name</mat-label>
+            <input matInput type="text" formControlName="courseName" />
+            <mat-error *ngIf="courseName.errors && courseName.errors.required"
+              >Course Name is required.</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Course ID</mat-label>
+            <input matInput type="text" formControlName="courseId" />
+            <mat-error *ngIf="courseId.errors && courseId.errors.required">Course ID is required.</mat-error>
+            <mat-error *ngIf="courseId.errors && courseId.errors.pattern">Course ID must be CRSXXX</mat-error>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">
+          Cancel
+        </button>
+        <button type="submit" mat-button color="accent">Add Batch</button>
+      </td>
+    </tr>
+  </table>
+</form>

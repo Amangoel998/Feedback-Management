@@ -1,0 +1,44 @@
+<mat-card>
+    <mat-card-title>Report</mat-card-title>
+    <mat-card-subtitle>{{
+        (trainerId)?
+        'Report for Trainer '+trainerId:
+        'Report for Program '+programId}}
+    </mat-card-subtitle>
+    <mat-card-content>
+    <table *ngIf="report">
+        <tr>
+            <th>Question Rating</th>
+            <th>Comments</th>
+            <th>Suggesstions</th>
+        </tr>
+        <tr>
+            <td>{{questions.q1+' - '+report.q1}}</td>
+            <td style="align-content: flex-start;" rowspan="100%">
+                <ul>
+                    <li *ngFor="let rep of report.comments">{{rep}}</li>
+                </ul>
+            </td> 
+            <td style="align-content: flex-start;" rowspan="100%">
+                <ul><li *ngFor="let rep of report.suggestions">{{rep}}</li></ul>
+            </td> 
+        </tr>
+        <tr>
+            <td>{{questions.q2+' - '+report.q2}}</td>
+        </tr>
+        <tr>
+            <td>{{questions.q3+' - '+report.q3}}</td>
+        </tr>
+        <tr>
+            <td>{{questions.q4+' - '+report.q4}}</td>
+        </tr>
+        <tr>
+            <td>{{questions.q5+' - '+report.q5}}</td>
+        </tr>
+    </table> 
+    
+  <div *ngIf="!report" style="margin:auto">
+    <p>No Content Available</p>
+  </div>   
+</mat-card-content>
+</mat-card>

@@ -1,0 +1,50 @@
+<mat-card><mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Students Table
+      </mat-panel-title>
+      <mat-panel-description>
+        List of Students and respective Details
+        <!-- <mat-icon>calendar_today</mat-icon> -->
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+      <mat-table [dataSource]="students_list">
+        <ng-container matColumnDef="index">
+          <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+          <mat-cell *matCellDef="let element; let i = index">
+            {{ i + 1 }}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="batch">
+            <mat-header-cell *matHeaderCellDef> Student Batch </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.batch }} </mat-cell>
+          </ng-container>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.studentId }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Student Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.studentName }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef> Student Email</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.studentEmail }} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+      <mat-action-row>
+        <mat-form-field style="width:200px">
+          <mat-label>Delete Student</mat-label>
+          <mat-select [formControl]="rmvStudent" >
+              <mat-option *ngFor="let gen of students_list" [value]="gen.studentId">{{gen.studentId+' - '+gen.studentName}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="rmvStudent.errors && rmvStudent.errors.required">Student is required.</mat-error>
+      </mat-form-field>
+        <button mat-button color="warn" (click)="removeStudent()">Delete</button>
+        <button mat-button color="primary" (click)="addDialog()">Add</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    </mat-card>
+  

@@ -1,0 +1,10 @@
+mat-grid-tile {
+    background: lightblue;
+ }
+ 
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+.dashboard-toolbar{
+    float: top;
+}

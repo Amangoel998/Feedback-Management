@@ -1,0 +1,59 @@
+<h2>Add a Program in Course</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Course ID</mat-label>
+            <mat-select formControlName="courseId">
+              <mat-option *ngFor="let gen of courses" [value]="gen.courseId">{{gen.courseId+' - '+gen.courseName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Program ID</mat-label>
+            <mat-select [disabled]="!courseId.value" formControlName="programId">
+              <mat-option *ngFor="let gen of programs" [value]="gen.programId">{{gen.programId+' - '+gen.programName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>Start Date</mat-label>
+                <input formControlName="startdate" matInput [matDatepicker]="dp1">
+                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                <mat-datepicker #dp1></mat-datepicker>
+              </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>End Date</mat-label>
+                <input formControlName="enddate" matInput [matDatepicker]="dp2">
+                <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+                <mat-datepicker #dp2></mat-datepicker>
+              </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button color="accent">Add Program Course</button>
+      </td>
+    </tr>
+  </table>
+</form>

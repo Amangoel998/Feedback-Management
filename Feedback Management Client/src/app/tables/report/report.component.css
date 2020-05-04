@@ -1,0 +1,14 @@
+:host{
+    justify-content: center;    
+}
+mat-form-field{
+    width: 100%;
+}
+table{
+    width: 100%;
+}
+.card-container {
+    margin:10px;
+    height: fit-content;
+    width: 90vw;
+}

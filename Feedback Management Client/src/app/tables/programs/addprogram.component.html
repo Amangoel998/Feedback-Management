@@ -1,0 +1,34 @@
+<h2>Add a New Program</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Program Name</mat-label>
+            <input matInput type="text" formControlName="programName"/>
+            <mat-error *ngIf="programName.errors && programName.errors.required">Program Name is required.</mat-error>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+              <mat-label>Program ID</mat-label>
+              <input matInput type="text" formControlName="programId"/>
+              <mat-error *ngIf="programId.errors && programId.errors.required">Program ID is required.</mat-error>
+              <mat-error *ngIf="programId.errors && programId.errors.pattern">Program ID must be PRGXXX</mat-error>
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button color="accent">Add Batch</button>
+      </td>
+    </tr>
+  </table>
+</form>

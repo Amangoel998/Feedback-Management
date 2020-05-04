@@ -1,0 +1,7 @@
+<mat-form-field style="width: 200px;" >
+    <mat-label>Select Program</mat-label>
+    <mat-select (selectionChange)="selectProgram($event)">
+      <mat-option *ngFor="let gen of program_list" [value]="gen.programId">
+        {{gen.programId + ' - ' + gen.programName}}</mat-option>
+    </mat-select>
+  </mat-form-field>

@@ -1,0 +1,61 @@
+<mat-card>
+  <mat-card-title>
+    Available Feedbacks
+  </mat-card-title>
+  <mat-card-subtitle>
+    List of Feedbacks for Programs and Start &amp; End Date
+    <!-- <mat-icon>calendar_today</mat-icon> -->
+  </mat-card-subtitle>
+  <mat-card-content>
+    <mat-table class="mat-elevation-z" [dataSource]="available_feedbacks">
+      <ng-container matColumnDef="index">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element; let i = index">
+          {{ i + 1 }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="programId">
+        <mat-header-cell *matHeaderCellDef> Program ID </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.programId }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="programName">
+        <mat-header-cell *matHeaderCellDef> Program Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.programName }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="trainerId">
+        <mat-header-cell *matHeaderCellDef> Trainer ID </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.trainerId }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="trainerName">
+        <mat-header-cell *matHeaderCellDef> Trainer Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.trainerName }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="startdate">
+        <mat-header-cell *matHeaderCellDef> Start Date</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.startDate }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="enddate">
+        <mat-header-cell *matHeaderCellDef> End Date</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.endDate }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="feedbacks">
+        <mat-header-cell *matHeaderCellDef> Give Feedback</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-button (click)="addFeedback(element)" color="primary">
+            Give Feedback
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,47 @@
+<h2>Add a Trainer in Program</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Trainer ID</mat-label>
+            <mat-select formControlName="trainerId">
+              <mat-option *ngFor="let gen of trainers" [value]="gen.trainerId">{{gen.trainerId+' - '+gen.trainerName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Program ID</mat-label>
+            <mat-select [disabled]="!trainerId.value" formControlName="programId">
+              <mat-option *ngFor="let gen of programs" [value]="gen.programId">{{gen.programId+' - '+gen.programName}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>Batch</mat-label>
+                <mat-select formControlName="batch">
+                  <mat-option *ngFor="let gen of batches" [value]="gen.batch">{{gen.batch}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button color="accent">Add Trainer Program</button>
+      </td>
+    </tr>
+  </table>
+</form>

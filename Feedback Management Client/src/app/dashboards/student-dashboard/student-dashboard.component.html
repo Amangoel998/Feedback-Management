@@ -1,0 +1,10 @@
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <h1>{{'Welcome '+user.user}}</h1>
+        <span class="toolbar-spacer"></span>
+        <button color="warn" mat-raised-button (click)="logout()">
+            Logout
+          </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<app-availablefeedbacks></app-availablefeedbacks>

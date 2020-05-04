@@ -1,0 +1,53 @@
+<mat-card>
+    <mat-card-title>
+      Feedback Defaulters for Trainer
+    </mat-card-title>
+    <mat-card-subtitle>
+      Details of Students who haven't submitted feedback for Respective Trainer
+    </mat-card-subtitle>
+    <mat-card-content>
+  <mat-table *ngIf="defaulters_list" [dataSource]="defaulters_list">
+    <ng-container matColumnDef="index">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i = index">
+        {{ i + 1 }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="batch">
+      <mat-header-cell *matHeaderCellDef> Batch </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.batch }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="program">
+      <mat-header-cell *matHeaderCellDef> Program </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.programId }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="studentId">
+      <mat-header-cell *matHeaderCellDef> Student ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.studentId }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="studentName">
+      <mat-header-cell *matHeaderCellDef> Student Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.studentName }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="studentEmail">
+      <mat-header-cell *matHeaderCellDef> Student Email </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element.studentEmail }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="startdate">
+      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.startDate }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="enddate">
+      <mat-header-cell *matHeaderCellDef> End Date</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.endDate }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <div *ngIf="!defaulters_list" style="margin:auto">
+    <p>No Content Available</p>
+  </div>
+</mat-card-content>
+</mat-card>

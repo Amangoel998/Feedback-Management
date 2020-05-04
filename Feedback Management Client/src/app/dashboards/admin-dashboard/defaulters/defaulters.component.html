@@ -1,0 +1,9 @@
+<mat-card>
+  <app-select-programs (programId)="programValueChange($event)"></app-select-programs>
+  <app-program-defaulters [programId]="programId"></app-program-defaulters>
+</mat-card>
+
+<mat-card>
+  <app-select-trainers (trainerId)="trainerValueChange($event)"></app-select-trainers>
+  <app-trainer-defaulters [trainerId]="trainerId"></app-trainer-defaulters>
+</mat-card>

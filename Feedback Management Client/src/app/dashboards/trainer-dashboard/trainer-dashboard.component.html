@@ -1,0 +1,16 @@
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <h1>{{'Welcome '+user.user}}</h1>
+        <span class="toolbar-spacer"></span>
+        <button color="warn" mat-raised-button (click)="logout()">
+            Logout
+          </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+    <app-report [trainerId]="trainerId"></app-report>
+</mat-card>
+<mat-card>
+    <app-trainer-defaulters [trainerId]="trainerId"></app-trainer-defaulters>
+</mat-card>

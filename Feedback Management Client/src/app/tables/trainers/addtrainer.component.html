@@ -1,0 +1,68 @@
+<h2>Add a New Trainer</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Trainer Name</mat-label>
+            <input matInput type="text" formControlName="trainerName" required/>
+            <mat-error *ngIf="trainerName.errors && trainerName.errors.required">Trainer Name is required.</mat-error>    
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Trainer Email</mat-label>
+            <input matInput type="text" formControlName="trainerEmail" required/>
+            <mat-error *ngIf="trainerEmail.errors && trainerEmail.errors.required">Trainer Email is required.</mat-error>    
+            <mat-error *ngIf="trainerEmail.errors && trainerEmail.errors.email">Must be a valid email.</mat-error>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Trainer ID</mat-label>
+            <input matInput type="text" formControlName="trainerId" required/>
+            <mat-error *ngIf="trainerId.errors && trainerId.errors.required">Trainer ID is required.</mat-error>
+            <mat-error *ngIf="trainerId.errors && trainerId.errors.pattern">Trainer ID must be TRNXXX</mat-error>
+          </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <mat-form-field>
+            <mat-label>Trainer Password</mat-label>
+            <input matInput type="password" formControlName="trainerPass" required/>
+            <mat-error *ngIf="trainerPass.errors && trainerPass.errors.required">Trainer Password is required.</mat-error>    
+            <mat-error *ngIf="trainerPass.errors && trainerPass.errors.minlength">Password must atleast have 6 length</mat-error>    
+            </mat-form-field>
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <mat-form-field>
+                <mat-label>Trainer Skills</mat-label>
+                <textarea  formControlName="trainerSkills" matInput placeholder="Skills separated by comma" required></textarea>
+            </mat-form-field>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button color="warn" mat-button [mat-dialog-close]="true">Cancel</button>
+        <button type="submit" mat-button color="accent">Add Trainer</button>
+      </td>
+    </tr>
+  </table>
+</form>

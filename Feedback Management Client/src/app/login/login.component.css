@@ -1,0 +1,49 @@
+mat-card:not([class*=mat-elevation-z]) {
+    max-width: fit-content;
+    max-height: fit-content;
+    border-radius: 10px;
+    margin-top: 20vh;
+    margin-left: 37.5vw;
+    margin-bottom: 20vh;
+    box-shadow: 0px 0px 20px 8px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)
+}
+
+mat-card-title,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}
+
+mat-card-title {
+    margin-bottom: 20px;
+}
+
+.mat-form-field {
+    padding: 5px 20px 5px 20px;
+    min-width: 300px;
+}
+
+.button-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    width: 95%;
+    padding: 10px 10px 10px 10px;
+    overflow: hidden;
+}
+
+a:link {
+    color: green;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: white;
+}
